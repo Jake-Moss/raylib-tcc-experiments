@@ -1,0 +1,18 @@
+* A small example of raylib and tinycc hot reloading
+This repo contains a =Makefile= that should setup the required inlcude and library paths for using
+raylib and tinycc together without an installation. =SELinux= may need to be disabled even if
+=tinycc= was configured with =--with-selinux=.
+
+You will need to configure =tinycc= yourself with =cd tinycc && ./configure=
+
+=make setup= should handle most replacing =gcc= with =tcc= in the makefiles and compile tinycc and raylib.
+
+Due to path things use =make run= to set the correct enviroment variables when launching.
+
+Press =a= to recompile the =target.c= file.
+
+* References
+Thanks to [[https://ciesie.com/post/tinycc_dynamic_compilation/]] for their blog post where I nicked the
+=compile_program= funciton.
+
+=core_2d_camera_platformer.c= is a modified example file from =raylib/examples/core/core_2d_camera_platformer.c=
