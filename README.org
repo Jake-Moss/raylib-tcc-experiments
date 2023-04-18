@@ -9,7 +9,9 @@ You will need to configure =tinycc= yourself with =cd tinycc && ./configure=
 
 Due to path things use =make run= to set the correct enviroment variables when launching.
 
-Press =a= to recompile the =target.c= file.
+Edit =target.c= and press =a= to recompile the =target.c= file.
+
+Clone with =git clone --recurse-submodules https://github.com/Jake-Moss/raylib-tcc-experiments= to grab =tinycc= and =raylib=.
 
 * References
 Thanks to [[https://ciesie.com/post/tinycc_dynamic_compilation/]] for their blog post where I nicked the
