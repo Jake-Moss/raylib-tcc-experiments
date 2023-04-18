@@ -42,20 +42,16 @@ int compile_program(script_t* script) {
         return -1;
     }
 
-    tcc_set_lib_path(tcc, "/usr/local/lib/tcc");
-    tcc_add_include_path(tcc, "/usr/local/lib/tcc/include");
+    tcc_set_lib_path(tcc, "./tinycc/lib");
 
-    tcc_add_include_path(tcc, "/usr/local/include");
-    /* tcc_add_include_path(tcc, "/home/jake/Software/raylib/src"); */
-    /* tcc_add_include_path(tcc, "/home/jake/Software/raylib/src/external"); */
+    tcc_add_include_path(tcc, "./tinycc");
+    tcc_add_include_path(tcc, "./tinycc/include");
+    tcc_add_include_path(tcc, "./raylib/src");
 
-    tcc_add_library_path(tcc, "/usr/local/lib");
-    /* tcc_add_library_path(tcc, "/home/jake/Software/raylib/src"); */
-
-    //tcc_add_library(tcc, "raylib");
+    tcc_add_library_path(tcc, "./tinycc");
 
     tcc_set_error_func(tcc, 0x0, tcc_error);
-    tcc_set_options(tcc, "-g");
+    tcc_set_options(tcc, "-g -Wall -std=c99 -D_DEFAULT_SOURCE -Wno-missing-braces -Wunused-result -O2 -DPLATFORM_DESKTOP");
     tcc_set_output_type(tcc, TCC_OUTPUT_MEMORY);
 
     int ret = tcc_add_file(tcc, script->path);
@@ -83,6 +79,7 @@ int compile_program(script_t* script) {
 
     script->UpdatePlayer = (script_UpdatePlayer)tcc_get_symbol(tcc, "UpdatePlayer");
 
+    printf("[TCC:SUCCESS] Recompiled script!\n");
     return 0;
 }
 

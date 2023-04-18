@@ -1,0 +1,6 @@
+[submodule "tinycc"]
+	path = tinycc
+	url = https://github.com/TinyCC/tinycc
+[submodule "raylib"]
+	path = raylib
+	url = https://github.com/raysan5/raylib

@@ -5,10 +5,10 @@
 void UpdatePlayer(Player *player, EnvItem *envItems, int envItemsLength, float delta) {
      if (IsKeyDown(KEY_LEFT)) player->position.x -= PLAYER_HOR_SPD*delta;
      if (IsKeyDown(KEY_RIGHT)) player->position.x += PLAYER_HOR_SPD*delta;
-     if ((IsKeyDown(KEY_SPACE) || IsKeyDown(KEY_UP)) && player->canJump)
+     if (IsKeyDown(KEY_SPACE) && player->canJump)
      {
 	  player->speed = -PLAYER_JUMP_SPD;
-	  player->canJump = false;
+	  //player->canJump = false;
      }
 
      int hitObstacle = 0;
@@ -30,7 +30,7 @@ void UpdatePlayer(Player *player, EnvItem *envItems, int envItemsLength, float d
      if (!hitObstacle) {
 	  player->position.y += player->speed*delta;
 	  player->speed += G*delta;
-	  player->canJump = false;
+	  //player->canJump = false;
      }
      else player->canJump = true;
 }
