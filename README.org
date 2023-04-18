@@ -5,7 +5,7 @@ raylib and tinycc together without an installation. =SELinux= may need to be dis
 
 You will need to configure =tinycc= yourself with =cd tinycc && ./configure=
 
-=make setup= should handle most replacing =gcc= with =tcc= in the makefiles and compile tinycc and raylib.
+=make setup= should handle replacing =gcc= with =tcc= in the makefiles and compile tinycc and raylib.
 
 Due to path things use =make run= to set the correct enviroment variables when launching.
 
