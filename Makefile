@@ -3,8 +3,8 @@ RAYLIBPATH = $(shell readlink -f raylib)
 
 export PATH := $(TINYCCPATH):$(PATH)
 export C_INCLUDE_PATH := $(TINYCCPATH):$(TINYCCPATH)/include:$(RAYLIBPATH)/src:$(C_INCLUDE_PATH)
-export LIBRARY_PATH := $(TINYCCPATH):$(RAYLIBPATH)/src:$(RAYLIBPATH)/src/external$(LIBRARY_PATH)
-export LD_LIBRARY_PATH := $LD_LIBRARY_PATH:$(RAYLIBPATH)/src
+export LIBRARY_PATH := $(TINYCCPATH):$(RAYLIBPATH)/src:$(RAYLIBPATH)/src/external:$(LIBRARY_PATH)
+export LD_LIBRARY_PATH := $(RAYLIBPATH)/src:$(LD_LIBRARY_PATH)
 
 CCFLAGS = -Wall -std=c99 -D_DEFAULT_SOURCE -Wno-missing-braces -Wunused-result -O2 -DPLATFORM_DESKTOP
 LDFLAGS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 -ltcc
